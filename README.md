@@ -8,6 +8,8 @@ Meant to accompany the blog post at (TODO: link to blog post)
 
 This repository is organized around branches for each framework. You can see the end results in the `nunit`, `xunit`, and `specflow` branches. The tags for each step for each framework are below, for easy reference.
 
+* TODO: Step 1 -- empty projects
+
 ## NUnit
 
 ## xUnit
