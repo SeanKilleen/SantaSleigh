@@ -9,6 +9,7 @@ public class SantaSleigh
     {
         _direction = _directionList.First.Value;
     }
+
     public string GetDirection()
     {
         return _direction;
@@ -36,5 +37,10 @@ public class SantaSleigh
 
         _direction = _directionList.Find(_direction).Previous.Value;
         return;
+    }
+
+    public int GetXCoordinate()
+    {
+        return 0;
     }
 }
