@@ -189,7 +189,19 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be(-1);
         }
-        // TODO: GetXCoordinate_FacingWestAndMovingForward_NegativeOne()
+
+        [Test]
+        public void GetXCoordinate_FacingWestAndMovingBackward_One()
+        {
+            var sut = new SantaSleigh();
+            sut.TurnLeft();
+
+            sut.MoveBackward(1);
+            var result = sut.GetXCoordinate();
+
+            result.Should().Be(1);
+        }
+
         // TODO: GetXCoordinate_FacingWestAndMovingBackward_One()
         // TODO: GetXCoordinate_FacingNorthAndMovingForward_NoChange()
         // TODO: GetXCoordinate_FacingNorthAndMovingBackward_NoChange()
