@@ -80,5 +80,16 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be("E");
         }
+
+        [Test]
+        public void GetDirection_TurnLeftOneTime_FacingWest()
+        {
+            var sut = new SantaSleigh();
+
+            sut.TurnLeft();
+            var result = sut.GetDirection();
+
+            result.Should().Be("W");
+        }
     }
 }

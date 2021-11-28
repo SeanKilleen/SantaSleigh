@@ -30,4 +30,9 @@ public class SantaSleigh
             return;
         }
     }
+
+    public void TurnLeft()
+    {
+        _direction = "W";
+    }
 }
