@@ -177,5 +177,12 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be(-1);
         }
+
+        // TODO: GetXCoordinate_FacingWestAndMovingForward_NegativeOne()
+        // TODO: GetXCoordinate_FacingWestAndMovingBackward_One()
+        // TODO: GetXCoordinate_FacingNorthAndMovingForward_NoChange()
+        // TODO: GetXCoordinate_FacingNorthAndMovingBackward_NoChange()
+        // TODO: GetXCoordinate_FacingSouthAndMovingForward_NoChange()
+        // TODO: GetXCoordinate_FacingSouthAndMovingBackward_NoChange()
     }
 }
