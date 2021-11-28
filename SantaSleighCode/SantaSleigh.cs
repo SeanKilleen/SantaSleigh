@@ -3,7 +3,9 @@ using System.Collections.Generic;
 public class SantaSleigh
 {
     private LinkedList<string> _directionList = new LinkedList<string>(new string[] { "N", "E", "S", "W" });
+
     private string _direction;
+    private int _xCoord = 0;
 
     public SantaSleigh()
     {
@@ -41,6 +43,11 @@ public class SantaSleigh
 
     public int GetXCoordinate()
     {
-        return 0;
+        return _xCoord;
+    }
+
+    public void MoveForward(int spaces)
+    {
+        _xCoord += spaces;
     }
 }
