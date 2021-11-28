@@ -24,5 +24,10 @@ public class SantaSleigh
             _direction = "W";
             return;
         }
+        if (_direction == "W")
+        {
+            _direction = "N";
+            return;
+        }
     }
 }
