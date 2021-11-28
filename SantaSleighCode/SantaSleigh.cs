@@ -52,6 +52,13 @@ public class SantaSleigh
     }
     public void MoveForward(int spaces)
     {
-        _xCoord += spaces;
+        if (_direction == "E")
+        {
+            _xCoord += spaces;
+        }
+        if (_direction == "W")
+        {
+            _xCoord -= spaces;
+        }
     }
 }
