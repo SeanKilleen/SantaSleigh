@@ -1,6 +1,7 @@
 public class SantaSleigh
 {
-    string _direction = "N";
+    private string _direction = "N";
+
     public string GetDirection()
     {
         return _direction;
