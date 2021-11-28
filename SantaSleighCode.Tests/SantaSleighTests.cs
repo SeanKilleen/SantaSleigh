@@ -129,5 +129,19 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be("N");
         }
+        [Test]
+        public void GetDirection_TurnLeftFiveTimes_FacingWest()
+        {
+            var sut = new SantaSleigh();
+
+            sut.TurnLeft();
+            sut.TurnLeft();
+            sut.TurnLeft();
+            sut.TurnLeft();
+            sut.TurnLeft();
+            var result = sut.GetDirection();
+
+            result.Should().Be("W");
+        }
     }
 }
