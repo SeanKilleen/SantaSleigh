@@ -46,6 +46,10 @@ public class SantaSleigh
         return _xCoord;
     }
 
+    public void MoveBackward(int spaces)
+    {
+        _xCoord -= spaces;
+    }
     public void MoveForward(int spaces)
     {
         _xCoord += spaces;

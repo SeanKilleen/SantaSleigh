@@ -159,11 +159,23 @@ namespace SantaSleighCode.Tests
         {
             var sut = new SantaSleigh();
             sut.TurnRight();
-            sut.MoveForward(1);
 
+            sut.MoveForward(1);
             var result = sut.GetXCoordinate();
 
             result.Should().Be(1);
+        }
+
+        [Test]
+        public void GetXCoordinate_FacingEastAndMovingBackward_NegativeOne()
+        {
+            var sut = new SantaSleigh();
+            sut.TurnRight();
+
+            sut.MoveBackward(1);
+            var result = sut.GetXCoordinate();
+
+            result.Should().Be(-1);
         }
     }
 }
