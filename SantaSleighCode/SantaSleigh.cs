@@ -9,6 +9,5 @@ public class SantaSleigh
     public void TurnRight()
     {
         _direction = "E";
-        // doing nothing
     }
 }
