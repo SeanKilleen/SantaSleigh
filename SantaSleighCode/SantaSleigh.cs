@@ -33,6 +33,15 @@ public class SantaSleigh
 
     public void TurnLeft()
     {
-        _direction = "W";
+        if (_direction == "N")
+        {
+            _direction = "W";
+            return;
+        }
+        if (_direction == "W")
+        {
+            _direction = "S";
+            return;
+        }
     }
 }

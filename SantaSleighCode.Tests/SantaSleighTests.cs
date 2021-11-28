@@ -91,5 +91,17 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be("W");
         }
+
+        [Test]
+        public void GetDirection_TurnLeftTwoTimes_FacingSouth()
+        {
+            var sut = new SantaSleigh();
+
+            sut.TurnLeft();
+            sut.TurnLeft();
+            var result = sut.GetDirection();
+
+            result.Should().Be("S");
+        }
     }
 }
