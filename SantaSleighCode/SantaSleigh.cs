@@ -79,16 +79,7 @@ public class SantaSleigh
             case "N":
                 // Yeah, this took me a minute and there's probably a better way.
                 // Check if we are going to go off the grid
-                if (_yCoord + spaces > _gridSize)
-                {
-                    // Get how many spaces off we'd be
-                    var spacesOffTheGrid = (_yCoord + spaces) - _gridSize;
-                    _yCoord = (-_gridSize) + spacesOffTheGrid - 1;
-                }
-                else
-                {
-                    _yCoord += spaces;
-                };
+                _yCoord = IncreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize);
                 break;
             case "E":
                 _xCoord += spaces;
@@ -100,5 +91,19 @@ public class SantaSleigh
                 _xCoord -= spaces;
                 break;
         }
+    }
+
+    private int IncreaseCoordinateAgainstGridSize(int coord, int spaces, int gridSize)
+    {
+        if (coord + spaces > gridSize)
+        {
+            // Get how many spaces off we'd be
+            var spacesOffTheGrid = (coord + spaces) - gridSize;
+            return (-gridSize) + spacesOffTheGrid - 1;
+        }
+        else
+        {
+            return coord += spaces;
+        };
     }
 }
