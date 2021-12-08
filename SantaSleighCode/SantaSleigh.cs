@@ -7,10 +7,12 @@ public class SantaSleigh
     private string _direction;
     private int _xCoord = 0;
     private int _yCoord = 0;
+    private int _gridSize;
 
-    public SantaSleigh()
+    public SantaSleigh(int gridSize)
     {
         _direction = _directionList.First.Value;
+        _gridSize = gridSize;
     }
 
     public string GetDirection()
@@ -75,7 +77,18 @@ public class SantaSleigh
         switch (_direction)
         {
             case "N":
-                _yCoord += spaces;
+                // Yeah, this took me a minute and there's probably a better way.
+                // Check if we are going to go off the grid
+                if (_yCoord + spaces > _gridSize)
+                {
+                    // Get how many spaces off we'd be
+                    var spacesOffTheGrid = (_yCoord + spaces) - _gridSize;
+                    _yCoord = (-_gridSize) + spacesOffTheGrid - 1;
+                }
+                else
+                {
+                    _yCoord += spaces;
+                };
                 break;
             case "E":
                 _xCoord += spaces;

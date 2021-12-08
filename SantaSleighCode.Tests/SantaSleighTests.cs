@@ -1,17 +1,21 @@
 using System;
 using NUnit.Framework;
 using FluentAssertions;
+using FsCheck.NUnit;
+using PropertyAttribute = FsCheck.NUnit.PropertyAttribute;
+using FsCheck;
 
 namespace SantaSleighCode.Tests
 {
     public class SantaSleighTests
     {
         private SantaSleigh _sut;
+        private const int GRID_SIZE = 124;
 
         [SetUp]
         public void Setup()
         {
-            _sut = new SantaSleigh();
+            _sut = new SantaSleigh(GRID_SIZE);
         }
 
         [Test]
@@ -350,6 +354,17 @@ namespace SantaSleighCode.Tests
             var result = _sut.GetYCoordinate();
 
             result.Should().Be(0);
+        }
+
+        [Property]
+        public void GetYCoordinate_FacingNorthMovingForwardPastEdgeByOne_MinimumYValue(PositiveInt randomSize)
+        {
+            var gridSize = ((int)randomSize);
+            var sut = new SantaSleigh(gridSize);
+            sut.MoveForward(gridSize + 1);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(-gridSize);
         }
     }
 }
