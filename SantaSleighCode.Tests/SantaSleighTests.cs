@@ -301,5 +301,20 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be(-numberOfSpaces);
         }
+
+        [TestCase(1)]
+        [TestCase(12)]
+        [TestCase(123)]
+        public void GetYCoordinate_FacingSouthAndMovingForward_DecreasesY(int numberOfSpaces)
+        {
+            var sut = new SantaSleigh();
+            sut.TurnLeft();
+            sut.TurnLeft();
+
+            sut.MoveForward(numberOfSpaces);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(-numberOfSpaces);
+        }
     }
 }
