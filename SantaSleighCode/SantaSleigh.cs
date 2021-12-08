@@ -54,40 +54,38 @@ public class SantaSleigh
 
     public void MoveBackward(int spaces)
     {
-        if (_direction == "E")
+        switch (_direction)
         {
-            _xCoord -= spaces;
-        }
-        if (_direction == "W")
-        {
-            _xCoord += spaces;
-        }
-        if (_direction == "N")
-        {
-            _yCoord -= spaces;
-        }
-        if (_direction == "S")
-        {
-            _yCoord += spaces;
+            case "N":
+                _yCoord -= spaces;
+                break;
+            case "E":
+                _xCoord -= spaces;
+                break;
+            case "S":
+                _yCoord += spaces;
+                break;
+            case "W":
+                _xCoord += spaces;
+                break;
         }
     }
     public void MoveForward(int spaces)
     {
-        if (_direction == "E")
+        switch (_direction)
         {
-            _xCoord += spaces;
-        }
-        if (_direction == "W")
-        {
-            _xCoord -= spaces;
-        }
-        if (_direction == "N")
-        {
-            _yCoord += spaces;
-        }
-        if (_direction == "S")
-        {
-            _yCoord -= spaces;
+            case "N":
+                _yCoord += spaces;
+                break;
+            case "E":
+                _xCoord += spaces;
+                break;
+            case "S":
+                _yCoord -= spaces;
+                break;
+            case "W":
+                _xCoord -= spaces;
+                break;
         }
     }
 }
