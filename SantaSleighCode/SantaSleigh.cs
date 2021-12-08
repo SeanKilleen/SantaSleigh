@@ -46,6 +46,11 @@ public class SantaSleigh
         return _xCoord;
     }
 
+    public int GetYCoordinate()
+    {
+        return 0;
+    }
+
     public void MoveBackward(int spaces)
     {
         if (_direction == "E")
