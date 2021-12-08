@@ -331,5 +331,61 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be(numberOfSpaces);
         }
+
+        [TestCase(1)]
+        [TestCase(12)]
+        [TestCase(123)]
+        public void GetYCoordinate_FacingEastAndMovingForward_NoChange(int numberOfSpaces)
+        {
+            var sut = new SantaSleigh();
+            sut.TurnRight();
+
+            sut.MoveForward(numberOfSpaces);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(0);
+        }
+
+        [TestCase(1)]
+        [TestCase(12)]
+        [TestCase(123)]
+        public void GetYCoordinate_FacingEastAndMovingBackward_NoChange(int numberOfSpaces)
+        {
+            var sut = new SantaSleigh();
+            sut.TurnRight();
+
+            sut.MoveBackward(numberOfSpaces);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(0);
+        }
+
+        [TestCase(1)]
+        [TestCase(12)]
+        [TestCase(123)]
+        public void GetYCoordinate_FacingWestAndMovingForward_NoChange(int numberOfSpaces)
+        {
+            var sut = new SantaSleigh();
+            sut.TurnLeft();
+
+            sut.MoveForward(numberOfSpaces);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(0);
+        }
+
+        [TestCase(1)]
+        [TestCase(12)]
+        [TestCase(123)]
+        public void GetYCoordinate_FacingWestAndMovingBackward_NoChange(int numberOfSpaces)
+        {
+            var sut = new SantaSleigh();
+            sut.TurnLeft();
+
+            sut.MoveBackward(numberOfSpaces);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(0);
+        }
     }
 }
