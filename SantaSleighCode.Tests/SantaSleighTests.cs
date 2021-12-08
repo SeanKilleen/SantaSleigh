@@ -275,5 +275,18 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be(0);
         }
+
+        [TestCase(1)]
+        [TestCase(12)]
+        [TestCase(123)]
+        public void GetYCoordinate_FacingNorthAndMovingForward_IncreasesY(int numberOfSpaces)
+        {
+            var sut = new SantaSleigh();
+
+            sut.MoveForward(numberOfSpaces);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(numberOfSpaces);
+        }
     }
 }

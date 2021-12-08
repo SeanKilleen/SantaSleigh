@@ -6,6 +6,7 @@ public class SantaSleigh
 
     private string _direction;
     private int _xCoord = 0;
+    private int _yCoord = 0;
 
     public SantaSleigh()
     {
@@ -48,7 +49,7 @@ public class SantaSleigh
 
     public int GetYCoordinate()
     {
-        return 0;
+        return _yCoord;
     }
 
     public void MoveBackward(int spaces)
@@ -71,6 +72,10 @@ public class SantaSleigh
         if (_direction == "W")
         {
             _xCoord -= spaces;
+        }
+        if (_direction == "N")
+        {
+            _yCoord += spaces;
         }
     }
 }
