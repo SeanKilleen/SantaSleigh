@@ -3,16 +3,18 @@ using System.Collections.Generic;
 public class SantaSleigh
 {
     private LinkedList<string> _directionList = new LinkedList<string>(new string[] { "N", "E", "S", "W" });
-
-    private string _direction;
     private int _xCoord = 0;
     private int _yCoord = 0;
+
+    private int _numberOfPresents;
+    private string _direction;
     private int _gridSize;
 
-    public SantaSleigh(int gridSize)
+    public SantaSleigh(int gridSize, int numberOfPresents)
     {
         _direction = _directionList.First.Value;
         _gridSize = gridSize;
+        _numberOfPresents = numberOfPresents;
     }
 
     public string GetDirection()
@@ -52,6 +54,11 @@ public class SantaSleigh
     public int GetYCoordinate()
     {
         return _yCoord;
+    }
+
+    public int RemainingPresents()
+    {
+        return _numberOfPresents;
     }
 
     public void MoveBackward(int spaces)
