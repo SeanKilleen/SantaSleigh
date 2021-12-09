@@ -59,7 +59,7 @@ public class SantaSleigh
         switch (_direction)
         {
             case "N":
-                _yCoord -= spaces;
+                _yCoord = DecreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize);
                 break;
             case "E":
                 _xCoord -= spaces;
