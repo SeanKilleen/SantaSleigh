@@ -368,6 +368,20 @@ namespace SantaSleighCode.Tests
         }
 
         [Property]
+        public void GetYCoordinate_FacingSouthMovingBackwardPastEdgeByOne_MinimumYValue(PositiveInt randomSize)
+        {
+            var gridSize = ((int)randomSize);
+            var sut = new SantaSleigh(gridSize);
+            sut.TurnLeft();
+            sut.TurnLeft();
+
+            sut.MoveBackward(gridSize + 1);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(-gridSize);
+        }
+
+        [Property]
         public void GetXCoordinate_FacingEastMovingForwardPastEdgeByOne_MinimumXValue(PositiveInt randomSize)
         {
             var gridSize = ((int)randomSize);
