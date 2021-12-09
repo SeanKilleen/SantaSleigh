@@ -77,8 +77,6 @@ public class SantaSleigh
         switch (_direction)
         {
             case "N":
-                // Yeah, this took me a minute and there's probably a better way.
-                // Check if we are going to go off the grid
                 _yCoord = IncreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize);
                 break;
             case "E":
