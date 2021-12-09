@@ -85,10 +85,10 @@ public class SantaSleigh
                 _xCoord = IncreaseCoordinateAgainstGridSize(_xCoord, spaces, _gridSize);
                 break;
             case "S":
-                _yCoord -= spaces;
+                _yCoord = DecreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize);
                 break;
             case "W":
-                _xCoord -= spaces;
+                _xCoord = DecreaseCoordinateAgainstGridSize(_xCoord, spaces, _gridSize);
                 break;
         }
     }
@@ -106,4 +106,18 @@ public class SantaSleigh
             return coord += spaces;
         };
     }
+    private int DecreaseCoordinateAgainstGridSize(int coord, int spaces, int gridSize)
+    {
+        if (coord - spaces < -gridSize)
+        {
+            // Get how many spaces off we'd be
+            var spacesOffTheGrid = (coord - spaces) + gridSize;
+            return (gridSize) + spacesOffTheGrid + 1;
+        }
+        else
+        {
+            return coord -= spaces;
+        };
+    }
+
 }
