@@ -4,6 +4,7 @@ using FluentAssertions;
 using FsCheck.NUnit;
 using PropertyAttribute = FsCheck.NUnit.PropertyAttribute;
 using FsCheck;
+using System.Linq;
 
 namespace SantaSleighCode.Tests
 {
@@ -457,6 +458,23 @@ namespace SantaSleighCode.Tests
             var result = sut.GetXCoordinate();
 
             result.Should().Be(gridSize);
+        }
+
+        [Property]
+        public void GetDirection_AfterRandomTurnsAndWrappingAround_StillTheSame(PositiveInt randomSize, NonNegativeInt numberOfTurns)
+        {
+            var gridSize = ((int)randomSize);
+            var sut = new SantaSleigh(gridSize);
+            foreach (var i in Enumerable.Range(0, (int)numberOfTurns))
+            {
+                sut.TurnLeft();
+            }
+            var startingDirection = sut.GetDirection();
+
+            sut.MoveForward(gridSize + 1);
+            var result = sut.GetDirection();
+
+            result.Should().Be(startingDirection);
         }
 
     }
