@@ -113,6 +113,7 @@ public class SantaSleigh
         {
             var magicalExtraPresents = 1;
             _numberOfPresents -= (matchingHouse.RequestedPresents + magicalExtraPresents);
+            _neighborhoodHouses.Remove(matchingHouse);
         }
     }
 

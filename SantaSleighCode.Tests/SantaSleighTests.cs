@@ -569,5 +569,22 @@ namespace SantaSleighCode.Tests
             var result = sut.RemainingPresents();
             result.Should().Be(3);
         }
+
+        [Test]
+        public void RemainingPresents_WhenStoppingOverAHouseTwice_OnlyDecrementsTheFirstTime()
+        {
+            var gridSize = 5;
+            var totalPresents = 10;
+            var house1 = new NeighborhoodHouse(0, 1, 2);
+            var houseList = new List<NeighborhoodHouse> { house1 };
+            var sut = new SantaSleigh(gridSize, totalPresents, houseList);
+
+            sut.MoveForward(1); // now at 1 on y axis, dropping 2 + 1 = 3 presents
+            sut.MoveForward(1); // going past the location
+            sut.MoveBackward(1); // going back to the location
+
+            var result = sut.RemainingPresents();
+            result.Should().Be(7);
+        }
     }
 }
