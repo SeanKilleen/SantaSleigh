@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 public class SantaSleigh
 {
@@ -97,6 +98,13 @@ public class SantaSleigh
             case "W":
                 _xCoord = DecreaseCoordinateAgainstGridSize(_xCoord, spaces, _gridSize);
                 break;
+        }
+
+        var matchingHouse = _neighborhoodHouses.SingleOrDefault(house => house.X == _xCoord && house.Y == _yCoord);
+        if (matchingHouse != null && matchingHouse.RequestedPresents > 0)
+        {
+            var magicalExtraPresents = 1;
+            _numberOfPresents -= (matchingHouse.RequestedPresents + magicalExtraPresents);
         }
     }
 
