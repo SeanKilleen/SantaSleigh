@@ -5,6 +5,7 @@ using FsCheck.NUnit;
 using PropertyAttribute = FsCheck.NUnit.PropertyAttribute;
 using FsCheck;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SantaSleighCode.Tests
 {
@@ -13,11 +14,12 @@ namespace SantaSleighCode.Tests
         const int DUMMY_NUMBER_OF_PRESENTS = 5;
         private SantaSleigh _sut;
         private const int GRID_SIZE = 124;
+        private List<NeighborhoodHouse> DUMMY_EMPTY_HOUSE_LIST = new();
 
         [SetUp]
         public void Setup()
         {
-            _sut = new SantaSleigh(GRID_SIZE, DUMMY_NUMBER_OF_PRESENTS);
+            _sut = new SantaSleigh(GRID_SIZE, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
         }
 
         [Test]
@@ -362,7 +364,7 @@ namespace SantaSleighCode.Tests
         public void GetYCoordinate_FacingNorthMovingForwardPastEdgeByOne_MinimumYValue(PositiveInt randomSize)
         {
             var gridSize = ((int)randomSize);
-            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS);
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
             sut.MoveForward(gridSize + 1);
             var result = sut.GetYCoordinate();
 
@@ -373,7 +375,7 @@ namespace SantaSleighCode.Tests
         public void GetYCoordinate_FacingSouthMovingBackwardPastEdgeByOne_MinimumYValue(PositiveInt randomSize)
         {
             var gridSize = ((int)randomSize);
-            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS);
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
             sut.TurnLeft();
             sut.TurnLeft();
 
@@ -387,7 +389,7 @@ namespace SantaSleighCode.Tests
         public void GetXCoordinate_FacingEastMovingForwardPastEdgeByOne_MinimumXValue(PositiveInt randomSize)
         {
             var gridSize = ((int)randomSize);
-            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS);
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
             sut.TurnRight();
 
             sut.MoveForward(gridSize + 1);
@@ -400,7 +402,7 @@ namespace SantaSleighCode.Tests
         public void GetXCoordinate_FacingWestMovingBackwardPastEdgeByOne_MinimumXValue(PositiveInt randomSize)
         {
             var gridSize = ((int)randomSize);
-            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS);
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
             sut.TurnLeft();
 
             sut.MoveBackward(gridSize + 1);
@@ -413,7 +415,7 @@ namespace SantaSleighCode.Tests
         public void GetXCoordinate_FacingWestMovingForwardPastEdgeByOne_MaximumXValue(PositiveInt randomSize)
         {
             var gridSize = ((int)randomSize);
-            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS);
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
             sut.TurnLeft();
 
             sut.MoveForward(gridSize + 1);
@@ -426,7 +428,7 @@ namespace SantaSleighCode.Tests
         public void GetYCoordinate_FacingSouthMovingForwardPastEdgeByOne_MaximumYValue(PositiveInt randomSize)
         {
             var gridSize = ((int)randomSize);
-            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS);
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
             sut.TurnLeft();
             sut.TurnLeft();
 
@@ -440,7 +442,7 @@ namespace SantaSleighCode.Tests
         public void GetYCoordinate_FacingNorthMovingBackwardPastEdgeByOne_MaximumYValue(PositiveInt randomSize)
         {
             var gridSize = ((int)randomSize);
-            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS);
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
 
             sut.MoveBackward(gridSize + 1);
             var result = sut.GetYCoordinate();
@@ -452,7 +454,7 @@ namespace SantaSleighCode.Tests
         public void GetXCoordinate_FacingEastMovingBackwardPastEdgeByOne_MaximumXValue(PositiveInt randomSize)
         {
             var gridSize = ((int)randomSize);
-            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS);
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
             sut.TurnRight();
 
             sut.MoveBackward(gridSize + 1);
@@ -465,7 +467,7 @@ namespace SantaSleighCode.Tests
         public void GetDirection_AfterRandomTurnsAndWrappingAround_StillTheSame(PositiveInt randomSize, NonNegativeInt numberOfTurns)
         {
             var gridSize = ((int)randomSize);
-            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS);
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
             foreach (var i in Enumerable.Range(0, (int)numberOfTurns))
             {
                 sut.TurnLeft();
@@ -482,11 +484,23 @@ namespace SantaSleighCode.Tests
         public void RemainingPresents_Default_EqualsWhatWasPutIn(NonNegativeInt numberOfPresents)
         {
             var dummyGridSize = 5;
-            var sut = new SantaSleigh(dummyGridSize, (int)numberOfPresents);
+            var sut = new SantaSleigh(dummyGridSize, (int)numberOfPresents, DUMMY_EMPTY_HOUSE_LIST);
 
             var result = sut.RemainingPresents();
 
             result.Should().Be((int)numberOfPresents);
+        }
+
+        [Test]
+        public void RemainingPresents_WhenStoppingOverCoordinateThatIsntInPresentsList_StaysTheSame()
+        {
+            var dummyGridSize = 5;
+            var sut = new SantaSleigh(dummyGridSize, DUMMY_NUMBER_OF_PRESENTS, DUMMY_EMPTY_HOUSE_LIST);
+
+            sut.MoveForward(1);
+
+            var result = sut.RemainingPresents();
+            result.Should().Be(DUMMY_NUMBER_OF_PRESENTS);
         }
     }
 }

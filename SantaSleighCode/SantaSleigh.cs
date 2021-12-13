@@ -9,12 +9,14 @@ public class SantaSleigh
     private int _numberOfPresents;
     private string _direction;
     private int _gridSize;
+    private List<NeighborhoodHouse> _neighborhoodHouses;
 
-    public SantaSleigh(int gridSize, int numberOfPresents)
+    public SantaSleigh(int gridSize, int numberOfPresents, List<NeighborhoodHouse> houses)
     {
         _direction = _directionList.First.Value;
         _gridSize = gridSize;
         _numberOfPresents = numberOfPresents;
+        _neighborhoodHouses = houses;
     }
 
     public string GetDirection()
@@ -126,3 +128,5 @@ public class SantaSleigh
     }
 
 }
+
+public record NeighborhoodHouse();
