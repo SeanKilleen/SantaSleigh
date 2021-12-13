@@ -129,4 +129,4 @@ public class SantaSleigh
 
 }
 
-public record NeighborhoodHouse();
+public record NeighborhoodHouse(int X, int Y, int RequestedPresents);
