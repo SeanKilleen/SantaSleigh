@@ -603,5 +603,20 @@ namespace SantaSleighCode.Tests
             var result = sut.RemainingPresents();
             result.Should().Be(6);
         }
+
+        [Test]
+        public void ThrowsExceptionWhenNotEnoughPresentsRemain()
+        {
+            var requestedPresents = 3;
+            var totalPresents = 3; // so Santa can't fulfill the +1 rule.
+            var gridSize = 5;
+            var house1 = new NeighborhoodHouse(0, 1, requestedPresents);
+            var houseList = new List<NeighborhoodHouse> { house1 };
+            var sut = new SantaSleigh(gridSize, totalPresents, houseList);
+
+            Action action = () => sut.MoveForward(1);
+
+            action.Should().Throw<OutOfPresentsException>().And.Message.Should().Be("I'm so-ho-ho sorry!");
+        }
     }
 }
