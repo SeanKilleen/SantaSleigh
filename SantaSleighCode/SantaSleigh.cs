@@ -82,12 +82,7 @@ public class SantaSleigh
                 break;
         }
 
-        var matchingHouse = _neighborhoodHouses.SingleOrDefault(house => house.X == _xCoord && house.Y == _yCoord);
-        if (matchingHouse != null && matchingHouse.RequestedPresents > 0)
-        {
-            var magicalExtraPresents = 1;
-            _numberOfPresents -= (matchingHouse.RequestedPresents + magicalExtraPresents);
-        }
+        DropPresents();
     }
     public void MoveForward(int spaces)
     {
@@ -107,7 +102,13 @@ public class SantaSleigh
                 break;
         }
 
+        DropPresents();
+    }
+
+    private void DropPresents()
+    {
         var matchingHouse = _neighborhoodHouses.SingleOrDefault(house => house.X == _xCoord && house.Y == _yCoord);
+
         if (matchingHouse != null && matchingHouse.RequestedPresents > 0)
         {
             var magicalExtraPresents = 1;
