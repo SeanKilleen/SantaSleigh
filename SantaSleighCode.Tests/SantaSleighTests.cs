@@ -225,5 +225,18 @@ namespace SantaSleighCode.Tests
             result.Should().Be(0);
         }
 
+        [Fact]
+        public void GetXCoordinate_FacingSouthAndMovingForward_NoChange()
+        {
+            var sut = new SantaSleigh();
+            sut.TurnLeft();
+            sut.TurnLeft();
+
+            sut.MoveForward(1);
+            var result = sut.GetXCoordinate();
+
+            result.Should().Be(0);
+        }
+
     }
 }
