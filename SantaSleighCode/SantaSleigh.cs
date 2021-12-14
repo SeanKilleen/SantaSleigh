@@ -41,6 +41,11 @@ namespace SantaSleighCode
             _direction = _directionList.Find(_direction).Previous.Value;
             return;
         }
+
+        public int GetXCoordinate()
+        {
+            return 0;
+        }
     }
 
 }

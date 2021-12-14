@@ -144,5 +144,15 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be("W");
         }
+
+        [Fact]
+        public void GetXCoordinate_Default_Zero()
+        {
+            var sut = new SantaSleigh();
+
+            var result = sut.GetXCoordinate();
+
+            result.Should().Be(0);
+        }
     }
 }
