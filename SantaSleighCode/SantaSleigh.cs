@@ -9,6 +9,7 @@ namespace SantaSleighCode
         private string _direction;
 
         private int _xCoord = 0;
+        private int _yCoord = 0;
 
         public SantaSleigh()
         {
@@ -51,7 +52,7 @@ namespace SantaSleighCode
 
         public int GetYCoordinate()
         {
-            return 0;
+            return _yCoord;
         }
 
         public void MoveForward(int spaces)
@@ -63,6 +64,10 @@ namespace SantaSleighCode
             if (_direction == "W")
             {
                 _xCoord -= spaces;
+            }
+            if (_direction == "N")
+            {
+                _yCoord += spaces;
             }
         }
         public void MoveBackward(int spaces)
