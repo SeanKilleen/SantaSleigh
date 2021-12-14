@@ -408,5 +408,18 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be(-gridSize);
         }
+
+        [Property]
+        public void GetXCoordinate_FacingWestMovingBackwardPastEdgeByOne_MinimumXValue(PositiveInt randomSize)
+        {
+            var gridSize = ((int)randomSize);
+            var sut = new SantaSleigh(gridSize);
+            sut.TurnLeft();
+
+            sut.MoveBackward(gridSize + 1);
+            var result = sut.GetXCoordinate();
+
+            result.Should().Be(-gridSize);
+        }
     }
 }
