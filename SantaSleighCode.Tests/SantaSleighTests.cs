@@ -301,6 +301,20 @@ namespace SantaSleighCode.Tests
             result.Should().Be(numberOfSpaces);
         }
 
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+        public void GetYCoordinate_FacingNorthAndMovingBackward_DecreasesY(int numberOfSpaces)
+        {
+            var sut = new SantaSleigh();
+
+            sut.MoveBackward(numberOfSpaces);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(-numberOfSpaces);
+        }
+
 
     }
 }
