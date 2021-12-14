@@ -167,5 +167,17 @@ namespace SantaSleighCode.Tests
             result.Should().Be(1);
         }
 
+        [Fact]
+        public void GetXCoordinate_FacingEastAndMovingBackward_NegativeOne()
+        {
+            var sut = new SantaSleigh();
+            sut.TurnRight();
+
+            sut.MoveBackward(1);
+            var result = sut.GetXCoordinate();
+
+            result.Should().Be(-1);
+        }
+
     }
 }

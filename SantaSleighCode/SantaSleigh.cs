@@ -53,6 +53,10 @@ namespace SantaSleighCode
         {
             _xCoord += spaces; // This will only work when facing East
         }
+        public void MoveBackward(int spaces)
+        {
+            _xCoord -= spaces; // This will only work when facing East
+        }
     }
 
 }
