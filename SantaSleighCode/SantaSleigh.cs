@@ -30,5 +30,13 @@ namespace SantaSleighCode
                 _direction = "N";
             }
         }
+
+        public void TurnLeft()
+        {
+            if (_direction == "N")
+            {
+                _direction = "W";
+            }
+        }
     }
 }
