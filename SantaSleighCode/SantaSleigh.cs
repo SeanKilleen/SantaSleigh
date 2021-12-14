@@ -51,7 +51,14 @@ namespace SantaSleighCode
 
         public void MoveForward(int spaces)
         {
-            _xCoord += spaces; // This will only work when facing East
+            if (_direction == "E")
+            {
+                _xCoord += spaces;
+            }
+            if (_direction == "W")
+            {
+                _xCoord -= spaces;
+            }
         }
         public void MoveBackward(int spaces)
         {
