@@ -13,7 +13,14 @@ namespace SantaSleighCode
 
         public void TurnRight()
         {
-            _direction = "E";
+            if (_direction == "N")
+            {
+                _direction = "E";
+            }
+            else if (_direction == "E")
+            {
+                _direction = "S";
+            }
         }
     }
 }
