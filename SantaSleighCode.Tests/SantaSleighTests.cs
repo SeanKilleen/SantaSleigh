@@ -362,5 +362,20 @@ namespace SantaSleighCode.Tests
             result.Should().Be(0);
         }
 
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+        public void GetYCoordinate_FacingEastAndMovingBackward_NoChange(int numberOfSpaces)
+        {
+            var sut = new SantaSleigh();
+            sut.TurnRight();
+
+            sut.MoveBackward(numberOfSpaces);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(0);
+        }
+
     }
 }
