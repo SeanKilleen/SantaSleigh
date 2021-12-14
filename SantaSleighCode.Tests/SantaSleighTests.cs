@@ -175,7 +175,7 @@ namespace SantaSleighCode.Tests
         [InlineData(1)]
         [InlineData(12)]
         [InlineData(123)]
-        public void GetXCoordinate_FacingEastAndMovingBackward_NegativeOne(int numberOfSpaces)
+        public void GetXCoordinate_FacingEastAndMovingBackward_DecreasesX(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
             sut.TurnRight();
@@ -190,7 +190,7 @@ namespace SantaSleighCode.Tests
         [InlineData(1)]
         [InlineData(12)]
         [InlineData(123)]
-        public void GetXCoordinate_FacingWestAndMovingForward_NegativeOne(int numberOfSpaces)
+        public void GetXCoordinate_FacingWestAndMovingForward_DecreasesX(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
             sut.TurnLeft();
@@ -205,7 +205,7 @@ namespace SantaSleighCode.Tests
         [InlineData(1)]
         [InlineData(12)]
         [InlineData(123)]
-        public void GetXCoordinate_FacingWestAndMovingBackward_One(int numberOfSpaces)
+        public void GetXCoordinate_FacingWestAndMovingBackward_IncreasesX(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
             sut.TurnLeft();
