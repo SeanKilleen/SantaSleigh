@@ -1,10 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SantaSleighCode
 {
     public class SantaSleigh
     {
-        private string _direction = "N";
+        private LinkedList<string> _directionList = new LinkedList<string>(new string[] { "N", "E", "S", "W" });
+        private string _direction;
+
+        public SantaSleigh()
+        {
+            _direction = _directionList.First.Value;
+        }
 
         public string GetDirection()
         {
@@ -13,42 +20,27 @@ namespace SantaSleighCode
 
         public void TurnRight()
         {
-            if (_direction == "N")
+            if (_direction == _directionList.Last.Value)
             {
-                _direction = "E";
+                _direction = _directionList.First.Value;
+                return;
             }
-            else if (_direction == "E")
-            {
-                _direction = "S";
-            }
-            else if (_direction == "S")
-            {
-                _direction = "W";
-            }
-            else if (_direction == "W")
-            {
-                _direction = "N";
-            }
+
+            _direction = _directionList.Find(_direction).Next.Value;
+            return;
         }
 
         public void TurnLeft()
         {
-            if (_direction == "N")
+            if (_direction == _directionList.First.Value)
             {
-                _direction = "W";
+                _direction = _directionList.Last.Value;
+                return;
             }
-            else if (_direction == "W")
-            {
-                _direction = "S";
-            }
-            else if (_direction == "S")
-            {
-                _direction = "E";
-            }
-            else if (_direction == "E")
-            {
-                _direction = "N";
-            }
+
+            _direction = _directionList.Find(_direction).Previous.Value;
+            return;
         }
     }
+
 }
