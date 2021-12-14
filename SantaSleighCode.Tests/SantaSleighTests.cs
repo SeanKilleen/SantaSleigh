@@ -102,5 +102,18 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be("S");
         }
+
+        [Fact]
+        public void GetDirection_TurnLeftThreeTimes_FacingEast()
+        {
+            var sut = new SantaSleigh();
+
+            sut.TurnLeft();
+            sut.TurnLeft();
+            sut.TurnLeft();
+            var result = sut.GetDirection();
+
+            result.Should().Be("E");
+        }
     }
 }
