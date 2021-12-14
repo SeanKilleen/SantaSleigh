@@ -49,6 +49,11 @@ namespace SantaSleighCode
             return _xCoord;
         }
 
+        public int GetYCoordinate()
+        {
+            return 0;
+        }
+
         public void MoveForward(int spaces)
         {
             if (_direction == "E")

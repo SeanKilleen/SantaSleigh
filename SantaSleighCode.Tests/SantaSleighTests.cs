@@ -275,5 +275,16 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be(0);
         }
+
+        [Fact]
+        public void GetYCoordinate_Default_Zero()
+        {
+            var sut = new SantaSleigh();
+
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(0);
+        }
+
     }
 }
