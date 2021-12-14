@@ -8,6 +8,8 @@ namespace SantaSleighCode
         private LinkedList<string> _directionList = new LinkedList<string>(new string[] { "N", "E", "S", "W" });
         private string _direction;
 
+        private int _xCoord;
+
         public SantaSleigh()
         {
             _direction = _directionList.First.Value;
@@ -44,7 +46,12 @@ namespace SantaSleighCode
 
         public int GetXCoordinate()
         {
-            return 0;
+            return _xCoord;
+        }
+
+        public void MoveForward(int spaces)
+        {
+            _xCoord += spaces; // This will only work when facing East
         }
     }
 
