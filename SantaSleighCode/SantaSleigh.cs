@@ -21,6 +21,10 @@ namespace SantaSleighCode
             {
                 _direction = "S";
             }
+            else if (_direction == "S")
+            {
+                _direction = "W";
+            }
         }
     }
 }

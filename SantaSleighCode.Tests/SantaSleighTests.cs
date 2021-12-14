@@ -37,5 +37,18 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be("S");
         }
+
+        [Fact]
+        public void GetDirection_TurnRightThreeTimes_FacingWest()
+        {
+            var sut = new SantaSleigh();
+
+            sut.TurnRight();
+            sut.TurnRight();
+            sut.TurnRight();
+            var result = sut.GetDirection();
+
+            result.Should().Be("W");
+        }
     }
 }
