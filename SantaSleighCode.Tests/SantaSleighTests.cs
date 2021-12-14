@@ -171,28 +171,34 @@ namespace SantaSleighCode.Tests
             result.Should().Be(numberOfSpaces);
         }
 
-        [Fact]
-        public void GetXCoordinate_FacingEastAndMovingBackward_NegativeOne()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+        public void GetXCoordinate_FacingEastAndMovingBackward_NegativeOne(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
             sut.TurnRight();
 
-            sut.MoveBackward(1);
+            sut.MoveBackward(numberOfSpaces);
             var result = sut.GetXCoordinate();
 
-            result.Should().Be(-1);
+            result.Should().Be(-numberOfSpaces);
         }
 
-        [Fact]
-        public void GetXCoordinate_FacingWestAndMovingForward_NegativeOne()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+        public void GetXCoordinate_FacingWestAndMovingForward_NegativeOne(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
             sut.TurnLeft();
 
-            sut.MoveForward(1);
+            sut.MoveForward(numberOfSpaces);
             var result = sut.GetXCoordinate();
 
-            result.Should().Be(-1);
+            result.Should().Be(-numberOfSpaces);
         }
 
         [Fact]
