@@ -88,6 +88,10 @@ namespace SantaSleighCode
             {
                 _yCoord -= spaces;
             }
+            if (_direction == "S")
+            {
+                _yCoord += spaces;
+            }
         }
     }
 
