@@ -155,16 +155,20 @@ namespace SantaSleighCode.Tests
             result.Should().Be(0);
         }
 
-        [Fact]
-        public void GetXCoordinate_FacingEastAndMovingForward_One()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+
+        public void GetXCoordinate_FacingEastAndMovingForward_IncreasesX(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
             sut.TurnRight();
 
-            sut.MoveForward(1);
+            sut.MoveForward(numberOfSpaces);
             var result = sut.GetXCoordinate();
 
-            result.Should().Be(1);
+            result.Should().Be(numberOfSpaces);
         }
 
         [Fact]
