@@ -8,7 +8,7 @@ namespace SantaSleighCode
         private LinkedList<string> _directionList = new LinkedList<string>(new string[] { "N", "E", "S", "W" });
         private string _direction;
 
-        private int _xCoord;
+        private int _xCoord = 0;
 
         public SantaSleigh()
         {
