@@ -191,5 +191,18 @@ namespace SantaSleighCode.Tests
             result.Should().Be(-1);
         }
 
+        [Fact]
+        public void GetXCoordinate_FacingWestAndMovingBackward_One()
+        {
+            var sut = new SantaSleigh();
+            sut.TurnLeft();
+
+            sut.MoveBackward(1);
+            var result = sut.GetXCoordinate();
+
+            result.Should().Be(1);
+        }
+
+
     }
 }
