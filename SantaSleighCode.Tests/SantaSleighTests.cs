@@ -201,65 +201,79 @@ namespace SantaSleighCode.Tests
             result.Should().Be(-numberOfSpaces);
         }
 
-        [Fact]
-        public void GetXCoordinate_FacingWestAndMovingBackward_One()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+        public void GetXCoordinate_FacingWestAndMovingBackward_One(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
             sut.TurnLeft();
 
-            sut.MoveBackward(1);
+            sut.MoveBackward(numberOfSpaces);
             var result = sut.GetXCoordinate();
 
-            result.Should().Be(1);
+            result.Should().Be(numberOfSpaces);
         }
 
-        [Fact]
-        public void GetXCoordinate_FacingNorthAndMovingForward_NoChange()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+        public void GetXCoordinate_FacingNorthAndMovingForward_NoChange(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
 
-            sut.MoveForward(1);
-            var result = sut.GetXCoordinate();
-
-            result.Should().Be(0);
-        }
-
-        [Fact]
-        public void GetXCoordinate_FacingNorthAndMovingBackward_NoChange()
-        {
-            var sut = new SantaSleigh();
-
-            sut.MoveBackward(1);
+            sut.MoveForward(numberOfSpaces);
             var result = sut.GetXCoordinate();
 
             result.Should().Be(0);
         }
 
-        [Fact]
-        public void GetXCoordinate_FacingSouthAndMovingForward_NoChange()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+        public void GetXCoordinate_FacingNorthAndMovingBackward_NoChange(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
-            sut.TurnLeft();
-            sut.TurnLeft();
 
-            sut.MoveForward(1);
+            sut.MoveBackward(numberOfSpaces);
             var result = sut.GetXCoordinate();
 
             result.Should().Be(0);
         }
 
-        [Fact]
-        public void GetXCoordinate_FacingSouthAndMovingBackward_NoChange()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+        public void GetXCoordinate_FacingSouthAndMovingForward_NoChange(int numberOfSpaces)
         {
             var sut = new SantaSleigh();
             sut.TurnLeft();
             sut.TurnLeft();
 
-            sut.MoveBackward(1);
+            sut.MoveForward(numberOfSpaces);
             var result = sut.GetXCoordinate();
 
             result.Should().Be(0);
         }
 
+        [Theory]
+        [InlineData(1)]
+        [InlineData(12)]
+        [InlineData(123)]
+        public void GetXCoordinate_FacingSouthAndMovingBackward_NoChange(int numberOfSpaces)
+        {
+            var sut = new SantaSleigh();
+            sut.TurnLeft();
+            sut.TurnLeft();
+
+            sut.MoveBackward(numberOfSpaces);
+            var result = sut.GetXCoordinate();
+
+            result.Should().Be(0);
+        }
     }
 }
