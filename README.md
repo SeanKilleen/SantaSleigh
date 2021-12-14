@@ -2,7 +2,7 @@
 
 A journey into Test automation and TDD for the [2021 C# Advent](https://www.csadvent.christmas/)
 
-Meant to accompany the blog post at (TODO: link to blog post)
+Meant to accompany the blog post at <https://seankilleen.com/2021/12/santa-sleigh/>
 
 ## Choose Your Own Adventure
 
