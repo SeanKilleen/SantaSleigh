@@ -14,5 +14,16 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be("N");
         }
+
+        [Fact]
+        public void GetDirection_TurnRightOnce_FacingEast()
+        {
+            var sut = new SantaSleigh();
+
+            sut.TurnRight();
+            var result = sut.GetDirection();
+
+            result.Should().Be("E");
+        }
     }
 }
