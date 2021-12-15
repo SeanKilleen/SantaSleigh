@@ -133,5 +133,5 @@ namespace SantaSleighCode
         }
     }
 
-    public record NeighborhoodHouse();
+    public record NeighborhoodHouse(int X, int Y, int RequestedPresents);
 }

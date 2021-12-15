@@ -516,5 +516,21 @@ namespace SantaSleighCode.Tests
             var result = sut.RemainingPresents();
             result.Should().Be(DUMMY_NUMBER_OF_PRESENTS);
         }
+
+        [Fact]
+        public void RemainingPresents_WhenStoppingOverHouseThatRequestsZeroPresents_StaysTheSame()
+        {
+            var gridSize = 5;
+            var house = new NeighborhoodHouse(1, 1, 0);
+            var houseList = new List<NeighborhoodHouse> { house };
+            var sut = new SantaSleigh(gridSize, DUMMY_NUMBER_OF_PRESENTS, houseList);
+
+            sut.MoveForward(1); // now at 1 on y axis
+            sut.TurnRight();
+            sut.MoveForward(1); // now at 1 on x axis
+
+            var result = sut.RemainingPresents();
+            result.Should().Be(DUMMY_NUMBER_OF_PRESENTS);
+        }
     }
 }
