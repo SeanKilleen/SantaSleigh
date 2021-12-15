@@ -145,6 +145,7 @@ namespace SantaSleighCode
             {
                 var magicalExtraPresents = 1;
                 _numberOfPresents -= (matchingHouse.RequestedPresents + magicalExtraPresents);
+                _neighborhoodHouses.Remove(matchingHouse);
             }
         }
     }
