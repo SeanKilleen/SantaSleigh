@@ -421,5 +421,32 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be(-gridSize);
         }
+
+        [Property]
+        public void GetXCoordinate_FacingWestMovingForwardPastEdgeByOne_MaximumXValue(PositiveInt randomSize)
+        {
+            var gridSize = ((int)randomSize);
+            var sut = new SantaSleigh(gridSize);
+            sut.TurnLeft();
+
+            sut.MoveForward(gridSize + 1);
+            var result = sut.GetXCoordinate();
+
+            result.Should().Be(gridSize);
+        }
+
+        [Property]
+        public void GetYCoordinate_FacingSouthMovingForwardPastEdgeByOne_MaximumYValue(PositiveInt randomSize)
+        {
+            var gridSize = ((int)randomSize);
+            var sut = new SantaSleigh(gridSize);
+            sut.TurnLeft();
+            sut.TurnLeft();
+
+            sut.MoveForward(gridSize + 1);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(gridSize);
+        }
     }
 }
