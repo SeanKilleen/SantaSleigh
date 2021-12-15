@@ -6,6 +6,7 @@ namespace SantaSleighCode
     public class SantaSleigh
     {
         private LinkedList<string> _directionList = new LinkedList<string>(new string[] { "N", "E", "S", "W" });
+        private List<NeighborhoodHouse> _neighborhoodHouses;
         private string _direction;
         private int _gridSize;
 
@@ -14,11 +15,12 @@ namespace SantaSleighCode
 
         private int _numberOfPresents;
 
-        public SantaSleigh(int gridSize, int numberOfPresents)
+        public SantaSleigh(int gridSize, int numberOfPresents, List<NeighborhoodHouse> neighborhoodHouses)
         {
             _direction = _directionList.First.Value;
             _gridSize = gridSize;
             _numberOfPresents = numberOfPresents;
+            _neighborhoodHouses = neighborhoodHouses;
         }
 
         public string GetDirection()
@@ -131,4 +133,5 @@ namespace SantaSleighCode
         }
     }
 
+    public record NeighborhoodHouse();
 }
