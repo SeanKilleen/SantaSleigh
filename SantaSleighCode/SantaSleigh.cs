@@ -12,10 +12,13 @@ namespace SantaSleighCode
         private int _xCoord = 0;
         private int _yCoord = 0;
 
-        public SantaSleigh(int gridSize)
+        private int _numberOfPresents;
+
+        public SantaSleigh(int gridSize, int numberOfPresents)
         {
             _direction = _directionList.First.Value;
             _gridSize = gridSize;
+            _numberOfPresents = numberOfPresents;
         }
 
         public string GetDirection()
@@ -92,6 +95,11 @@ namespace SantaSleighCode
                     _xCoord = IncreaseCoordinateAgainstGridSize(_xCoord, spaces, _gridSize);
                     break;
             }
+        }
+
+        public int RemainingPresents()
+        {
+            return _numberOfPresents;
         }
 
         private int IncreaseCoordinateAgainstGridSize(int coord, int spaces, int gridSize)
