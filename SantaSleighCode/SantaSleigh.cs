@@ -115,7 +115,7 @@ namespace SantaSleighCode
                 case "N":
                     _yCoord = DecreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize); break;
                 case "E":
-                    _xCoord -= spaces;
+                    _xCoord = DecreaseCoordinateAgainstGridSize(_xCoord, spaces, _gridSize);
                     break;
                 case "S":
                     _yCoord = IncreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize);
