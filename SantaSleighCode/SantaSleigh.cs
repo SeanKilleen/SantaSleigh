@@ -144,11 +144,21 @@ namespace SantaSleighCode
             if (matchingHouse != null && matchingHouse.RequestedPresents > 0)
             {
                 var magicalExtraPresents = 1;
-                _numberOfPresents -= (matchingHouse.RequestedPresents + magicalExtraPresents);
+                var presentsToDecrement = matchingHouse.RequestedPresents + magicalExtraPresents;
+                if (_numberOfPresents - presentsToDecrement < 0)
+                {
+                    throw new OutOfPresentsException("I'm so-ho-ho sorry!");
+                }
+                _numberOfPresents -= presentsToDecrement;
                 _neighborhoodHouses.Remove(matchingHouse);
             }
         }
     }
 
     public record NeighborhoodHouse(int X, int Y, int RequestedPresents);
+
+    public class OutOfPresentsException : Exception
+    {
+        public OutOfPresentsException(string message) : base(message) { }
+    }
 }
