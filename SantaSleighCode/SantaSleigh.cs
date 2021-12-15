@@ -113,8 +113,7 @@ namespace SantaSleighCode
             switch (_direction)
             {
                 case "N":
-                    _yCoord -= spaces;
-                    break;
+                    _yCoord = DecreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize); break;
                 case "E":
                     _xCoord -= spaces;
                     break;

@@ -448,5 +448,17 @@ namespace SantaSleighCode.Tests
 
             result.Should().Be(gridSize);
         }
+
+        [Property]
+        public void GetYCoordinate_FacingNorthMovingBackwardPastEdgeByOne_MaximumYValue(PositiveInt randomSize)
+        {
+            var gridSize = ((int)randomSize);
+            var sut = new SantaSleigh(gridSize);
+
+            sut.MoveBackward(gridSize + 1);
+            var result = sut.GetYCoordinate();
+
+            result.Should().Be(gridSize);
+        }
     }
 }
