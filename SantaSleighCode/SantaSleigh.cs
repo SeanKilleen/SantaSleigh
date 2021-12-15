@@ -76,6 +76,24 @@ namespace SantaSleighCode
             }
         }
 
+        public void MoveBackward(int spaces)
+        {
+            switch (_direction)
+            {
+                case "N":
+                    _yCoord = DecreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize); break;
+                case "E":
+                    _xCoord = DecreaseCoordinateAgainstGridSize(_xCoord, spaces, _gridSize);
+                    break;
+                case "S":
+                    _yCoord = IncreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize);
+                    break;
+                case "W":
+                    _xCoord = IncreaseCoordinateAgainstGridSize(_xCoord, spaces, _gridSize);
+                    break;
+            }
+        }
+
         private int IncreaseCoordinateAgainstGridSize(int coord, int spaces, int gridSize)
         {
             if (coord + spaces > gridSize)
@@ -102,26 +120,6 @@ namespace SantaSleighCode
             {
                 return coord -= spaces;
             };
-        }
-
-
-
-        public void MoveBackward(int spaces)
-        {
-            switch (_direction)
-            {
-                case "N":
-                    _yCoord = DecreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize); break;
-                case "E":
-                    _xCoord = DecreaseCoordinateAgainstGridSize(_xCoord, spaces, _gridSize);
-                    break;
-                case "S":
-                    _yCoord = IncreaseCoordinateAgainstGridSize(_yCoord, spaces, _gridSize);
-                    break;
-                case "W":
-                    _xCoord = IncreaseCoordinateAgainstGridSize(_xCoord, spaces, _gridSize);
-                    break;
-            }
         }
     }
 
