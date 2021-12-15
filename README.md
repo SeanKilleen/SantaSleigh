@@ -6,7 +6,7 @@ Meant to accompany the blog post at (TODO: link to blog post)
 
 ## Choose Your Own Adventure
 
-This repository is organized around branches for each framework. You can see the end results in the `nunit` and `xunit` branches. The tags for each step for each framework are below, for easy reference.
+This repository is organized around branches for each framework. You can see the end results in the `xunit` and `xunit` branches. The tags for each step for each framework are below, for easy reference.
 
 |  | Tag | Diff |
 |---|-----|------|
@@ -28,3 +28,16 @@ This repository is organized around branches for each framework. You can see the
 | 8. Exception | [Tag](https://github.com/SeanKilleen/SantaSleigh/releases/tag/nunit-08-exception) | [Diff](https://github.com/SeanKilleen/SantaSleigh/compare/nunit-07-presents...nunit-08-exception) |
 
 ## xUnit
+
+[See the commits step by step](https://github.com/SeanKilleen/SantaSleigh/commits/xunit)
+
+|  | Tag | Diff |
+|---|-----|------|
+| 1. Basic Setup | [Tag](https://github.com/SeanKilleen/SantaSleigh/releases/tag/xunit-01-basicsetup) | [Diff](https://github.com/SeanKilleen/SantaSleigh/compare/01-emptyproject...xunit-01-basicsetup) |
+| 2. Turning | [Tag](https://github.com/SeanKilleen/SantaSleigh/releases/tag/xunit-02-turning) | [Diff](https://github.com/SeanKilleen/SantaSleigh/compare/xunit-01-basicsetup...xunit-02-turning) |
+| 3. Refactoring | [Tag](https://github.com/SeanKilleen/SantaSleigh/releases/tag/xunit-03-refactoring) | [Diff](https://github.com/SeanKilleen/SantaSleigh/compare/xunit-02-turning...xunit-03-refactoring) |
+| 4. X Coordinates | [Tag](https://github.com/SeanKilleen/SantaSleigh/releases/tag/xunit-04-xcoordinates) | [Diff](https://github.com/SeanKilleen/SantaSleigh/compare/xunit-03-refactoring...xunit-04-xcoordinates) |
+| 5. Y Coordinates | [Tag](https://github.com/SeanKilleen/SantaSleigh/releases/tag/xunit-05-ycoordinates) | [Diff](https://github.com/SeanKilleen/SantaSleigh/compare/xunit-04-xcoordinates...xunit-05-ycoordinates) |
+| 6. Wrapping | [Tag](https://github.com/SeanKilleen/SantaSleigh/releases/tag/xunit-06-wrapping) | [Diff](https://github.com/SeanKilleen/SantaSleigh/compare/xunit-05-ycoordinates...xunit-06-wrapping) |
+| 7. Presents | [Tag](https://github.com/SeanKilleen/SantaSleigh/releases/tag/xunit-07-presents) | [Diff](https://github.com/SeanKilleen/SantaSleigh/compare/xunit-06-wrapping...xunit-07-presents) |
+| 8. Exception | [Tag](https://github.com/SeanKilleen/SantaSleigh/releases/tag/xunit-08-exception) | [Diff](https://github.com/SeanKilleen/SantaSleigh/compare/xunit-07-presents...xunit-08-exception) |
